@@ -1,20 +1,31 @@
 {
   "name": "fm-3-column-preview-card-component",
   "version": "1.0.0",
-  "description": "![Design preview for the 3-column preview card component coding challenge](./design/desktop-preview.jpg)",
-  "main": "index.js",
+  "description": "Project description",
+  "main": "public/index.html",
+  "author": "author name",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:sass": "sass --no-source-map src/sass:public/css",
+    "copy:assets": "copyfiles -u 1 ./src/assets/**/* public",
+    "copy:html": "copyfiles -u 1 ./src/*.html public",
+    "copy": "npm-run-all --parallel copy:*",
+    "watch:assets": "onchange src/assets/**/* -- npm run copy:assets",
+    "watch:html": "onchange src/*.html -- npm run copy:html",
+    "watch:sass": "sass --watch src/sass:public/css",
+    "watch": "npm-run-all --parallel watch:*",
+    "serve": "browser-sync start --server public --files public",
+    "start": "npm-run-all copy --parallel watch serve",
+    "build": "npm-run-all copy:html build:*",
+    "postbuild": "postcss public/css/*.css -u autoprefixer cssnano -r --no-map"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cbrands/fm-3-column-preview-card-component.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cbrands/fm-3-column-preview-card-component/issues"
-  },
-  "homepage": "https://github.com/cbrands/fm-3-column-preview-card-component#readme"
+  "dependencies": {
+    "autoprefixer": "^10.4.2",
+    "browser-sync": "^2.27.7",
+    "copyfiles": "^2.4.1",
+    "cssnano": "^5.0.17",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "postcss-cli": "^9.1.0",
+    "sass": "^1.49.8"
+  }
 }
