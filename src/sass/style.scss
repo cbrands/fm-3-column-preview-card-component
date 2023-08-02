@@ -1,0 +1,115 @@
+// Colors
+$bright-orange: hsl(31, 77%, 52%);
+$dark-cyan: hsl(184, 100%, 22%);
+$very-dark-cyan: hsl(179, 100%, 13%);
+$white: hsl(0, 0%, 100%);
+$transparent-white: hsla(0, 0%, 100%, 0.75);
+$very-light-gray: hsl(0, 0%, 95%);
+
+// Fonts
+$ff-lexend-deca: 'Lexend Deca', sans-serif;
+$ff-big-shoulders-display: 'Big Shoulders Display', cursive;
+
+// font-weights
+$fw-400: 400;
+$fw-700: 700;
+
+$fs-large: 2.5rem;
+$fs-regular: 1rem;
+
+$breakpoint:800px;
+
+body {
+  font-family: $ff-lexend-deca;
+  font-weight: $fw-400;
+  font-size: $fs-regular;
+  color: $transparent-white;
+  line-height: 2;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto;
+  width: 95%;
+  @media screen and (min-width: $breakpoint) {
+    flex-direction: row;
+    max-width: 1000px;
+  }  
+}
+
+.card {
+  padding: 2.5rem;
+  &--orange {
+    background-color: $bright-orange;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    @media screen and (min-width: $breakpoint) {
+      border-bottom-left-radius: 0.5rem;
+      border-top-right-radius: 0;
+    } 
+  }
+
+  &--cyan {
+    background-color: $dark-cyan;
+  }
+
+  &--very-dark-cyan {
+    background-color: $very-dark-cyan;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    @media screen and (min-width: $breakpoint) {
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 0.5rem;
+    } 
+  }
+
+
+}
+
+img {
+  width: 4rem;
+}
+
+h2 {
+  color: $white;
+  text-transform: uppercase;
+  font-family: $ff-big-shoulders-display;
+  font-size: $fs-large;
+  font-weight: $fw-700;
+  margin-top: 2rem;
+}
+
+p {
+  margin: 1rem 0 2rem 0;
+}
+
+.btn {
+  background-color: $white;
+  text-transform: capitalize;
+  padding: 1rem 2rem;
+  border: 2px solid $white;
+  border-radius: 50px;
+  &--orange {
+    color: $bright-orange;
+    &:hover, &:focus {
+      background-color: $bright-orange;
+      color: $white;
+    }
+  }
+  &--cyan {
+    color: $dark-cyan;
+    &:hover, &:focus {
+      background-color: $dark-cyan;
+      color: $white;
+    }
+  }
+  &--very-dark-cyan {
+    color: $very-dark-cyan;
+    &:hover, &:focus {
+      background-color: $very-dark-cyan;
+      color: $white;
+    }
+  }
+}
+
